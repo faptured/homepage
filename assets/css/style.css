@@ -620,23 +620,97 @@ footer {
     backdrop-filter: blur(12px) saturate(150%);
     -webkit-backdrop-filter: blur(12px) saturate(150%);
     border-top: 1px solid var(--border-glass);
-    padding: 3rem 0;
+    padding: 4rem 0 3rem;
+}
+
+.footer-content {
     text-align: center;
 }
 
-.footer-content p {
-    color: var(--text-muted);
-    margin: 0.5rem 0;
+.footer-description {
+    margin-bottom: 3rem;
 }
 
-footer a {
+.footer-description p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* Social Links */
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-glass);
+    border-radius: 50px;
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
-footer a:hover {
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--neon-purple);
     color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Legal Text */
+.footer-legal {
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-legal p {
+    color: var(--text-muted);
+    margin: 0.5rem 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.footer-legal a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: var(--text-primary);
+    border-bottom-color: var(--neon-blue);
+    filter: drop-shadow(0 0 10px var(--neon-blue));
+}
+
+.footer-copyright {
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-glass);
+}
+
+.footer-copyright p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
 }
 
 /* Responsive Design */
@@ -675,6 +749,20 @@ footer a:hover {
     .cta-actions {
         flex-direction: column;
         align-items: center;
+    }
+    
+    .footer-social {
+        gap: 1rem;
+    }
+    
+    .social-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+    
+    .social-link svg {
+        width: 18px;
+        height: 18px;
     }
 }
 
