@@ -39,8 +39,31 @@ title: Faptured - Bikini Video Compilations
             <p>Our latest original bikini highlights and remixes</p>
         </div>
         <div class="compilation-grid">
-            {% assign featured_pages = site.pages | where_exp: "page", "page.path contains 'compilations/'" | where_exp: "page", "page.featured == true" | limit: 6 %}
-            {% if featured_pages.size == 0 %}
+            {% if site.data.youtube_videos %}
+                <!-- Show actual YouTube videos if available -->
+                {% for video in site.data.youtube_videos.videos limit:3 %}
+                    <a href="{{ video.url }}" target="_blank" class="compilation-card">
+                        <div class="thumbnail-wrapper">
+                            <img class="video-thumbnail" src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                            <div class="play-overlay">
+                                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">{{ video.title }}</h3>
+                            <div class="card-meta">
+                                <span class="date">{{ video.publishedAt | date: "%B %d, %Y" }}</span>
+                            </div>
+                            <p class="card-description">{{ video.description | truncate: 150 }}</p>
+                            <div class="card-tags">
+                                <span class="tag">YouTube</span>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            {% else %}
                 <!-- Sample compilation cards for demonstration -->
                 <a href="#" class="compilation-card">
                     <div class="thumbnail-wrapper">

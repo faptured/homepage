@@ -1,5 +1,6 @@
 title: Faptured
 description: Bikini highlight reels, remixes, and digital photo shoots
+repository: faptured/homepage
 theme: jekyll-theme-minimal
 baseurl: ""
 url: "https://faptured.com"
