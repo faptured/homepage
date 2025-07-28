@@ -1,0 +1,28 @@
+<!-- SEO Meta Tags -->
+<meta name="description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:type" content="website">
+{% if page.image %}
+<meta property="og:image" content="{{ page.image | absolute_url }}">
+{% elsif site.logo %}
+<meta property="og:image" content="{{ site.logo | absolute_url }}">
+{% endif %}
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="{{ site.twitter.card | default: 'summary' }}">
+{% if site.twitter.username %}
+<meta name="twitter:site" content="@{{ site.twitter.username }}">
+<meta name="twitter:creator" content="@{{ site.twitter.username }}">
+{% endif %}
+<meta name="twitter:title" content="{{ page.title | default: site.title }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+{% if page.image %}
+<meta name="twitter:image" content="{{ page.image | absolute_url }}">
+{% elsif site.logo %}
+<meta name="twitter:image" content="{{ site.logo | absolute_url }}">
+{% endif %}
+
+<title>{{ page.title | default: site.title }}</title>

@@ -1,0 +1,61 @@
+title: Faptured Homepage
+description: Welcome to Faptured - Your content compilation and attribution platform
+theme: null
+baseurl: ""
+url: "https://faptured.com"
+
+# SEO Settings
+lang: en_US
+author:
+  name: Faptured
+  twitter: faptured
+twitter:
+  username: faptured
+  card: summary_large_image
+logo: /assets/images/logo.png
+social:
+  name: Faptured
+  links:
+    - https://github.com/faptured
+    - https://twitter.com/faptured
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
+  auto_link: true
+  parse_block_html: true
+
+plugins:
+  - jekyll-relative-links
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Include content files
+include:
+  - content
+  - features
+
+# Collections
+collections:
+  features:
+    output: true
+    permalink: /features/:name
+  content:
+    output: true
+    permalink: /content/:name
+
+# Defaults
+defaults:
+  - scope:
+      path: "features"
+      type: "pages"
+    values:
+      layout: "feature"
+      image: /assets/images/feature-default.png
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/default-og.png

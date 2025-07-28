@@ -1,0 +1,87 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Faptured</h1>
+        <p class="hero-tagline">Your comprehensive platform for content compilation and attribution</p>
+        <div class="hero-actions">
+            <a href="/features" class="btn btn-primary">Explore Features</a>
+            <a href="https://links.faptured.com" class="btn btn-secondary">View Attributions</a>
+        </div>
+    </div>
+</section>
+
+<section class="features-preview">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Content Management</h3>
+            <p>Organize and manage your content compilations with ease. Track sources, creators, and metadata efficiently.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔗</div>
+            <h3>Attribution System</h3>
+            <p>Comprehensive attribution tracking ensures proper credit to original creators and maintains transparency.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Responsive Design</h3>
+            <p>Access your content and attributions from any device with our mobile-friendly interface.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Search & Discovery</h3>
+            <p>Powerful search capabilities help you find specific content, creators, or compilations quickly.</p>
+        </div>
+    </div>
+</section>
+
+<section class="recent-content">
+    <h2>Recent Compilations</h2>
+    <div class="content-grid">
+        {% assign recent_pages = site.pages | where_exp: "page", "page.path contains 'content/'" | where_exp: "page", "page.path contains '.md'" | sort: 'date' | reverse | limit: 6 %}
+        {% for page in recent_pages %}
+            {% unless page.path contains 'index' %}
+                <a href="{{ page.url | relative_url }}" class="content-card">
+                    {% if page.thumbnail %}
+                        <img class="content-thumbnail" 
+                             src="{{ page.thumbnail }}" 
+                             alt="{{ page.title }}"
+                             loading="lazy">
+                    {% endif %}
+                    <div class="card-content">
+                        <h3 class="card-title">{{ page.title | default: page.name }}</h3>
+                        <div class="content-meta">
+                            {% if page.date %}<span>{{ page.date | date: "%B %d, %Y" }}</span>{% endif %}
+                            {% if page.category %}<span class="category">{{ page.category }}</span>{% endif %}
+                        </div>
+                        <p class="content-description">
+                            {{ page.description | default: "Click to view more details" | truncate: 150 }}
+                        </p>
+                    </div>
+                </a>
+            {% endunless %}
+        {% endfor %}
+    </div>
+    
+    {% if recent_pages.size == 0 %}
+        <div class="empty-state">
+            <p>No content compilations available yet. Check back soon!</p>
+        </div>
+    {% endif %}
+</section>
+
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>Ready to Get Started?</h2>
+        <p>Join our community and start creating properly attributed content compilations today.</p>
+        <div class="cta-actions">
+            <a href="/get-started" class="btn btn-primary">Get Started</a>
+            <a href="/documentation" class="btn btn-outline">Read Documentation</a>
+        </div>
+    </div>
+</section>
