@@ -1,8 +1,8 @@
 title: Faptured Homepage
 description: Welcome to Faptured - Your content compilation and attribution platform
-theme: null
-baseurl: ""
-url: "https://faptured.com"
+theme: jekyll-theme-minimal
+baseurl: "/homepage"
+url: "https://faptured.github.io"
 
 # SEO Settings
 lang: en_US
